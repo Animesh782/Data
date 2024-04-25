@@ -1,0 +1,177 @@
+1.Pattern printing equi triangle
+
+#!/bin/bash
+echo "Enter size"
+read n
+for((i=1;i<=$n;i++));
+do
+for((j=i;j<$n;j++));
+do
+echo -n " "
+done
+for((k=1;k<$i;k++));
+do
+echo -n "* "
+done
+echo
+done
+
+2.Pattern printing right angle triangle
+#!/bin/bash
+echo "Enter size"
+read n
+for((i=1;i<=$n;i++));
+do
+for((j=1;j<=$i;j++));
+do
+echo -n "* "
+done
+echo
+
+3.Factorial
+#!/bin/bash
+echo "Enter a number : "
+read num
+
+fact=1
+for((i=1;i<=num;i++));
+do
+	fact=$((fact*i))
+done
+echo "Factorial = "$fact
+
+4.Addition
+#!/bin/bash
+echo "Enter 1st num"
+read num1
+echo "Enter 2nd num"
+read num2
+
+c=$((num1+num2))
+echo "Addition of two numbers : " $c
+
+5.Greatest number
+#!/bin/bash
+echo "Enter 1st number"
+read num1
+echo "Enter 2nd number"
+read num2
+echo "Enter 3rd number"
+read num3
+
+if [ $num1 -gt $num2 ] && [ $num1 -gt $num3 ]
+then
+echo "Num1 is greater"
+elif [ $num2 -gt $num1 ] && [ $num2 -gt $num3 ]
+then
+echo "Num2 is greater"
+else
+echo "Num3 is greater"
+fi
+
+6.Armstrong number
+#!/bin/bash
+echo "Enter a number"
+read num
+digit=0
+temp=$num
+
+while [ $num -ne 0 ];
+do
+	rem=$((num%10))
+	digit=$((digit+rem*rem*rem))
+	num=$((num/10))
+done
+if [ $temp -eq $digit ]
+then
+echo "Armstrong number"
+else
+echo "Not armstrong"
+fi
+
+7.Palindrome
+#!/bin/bash
+echo "Enter a number : "
+read num
+digit=0
+temp=$num
+
+while [ $num -ne 0 ];
+do
+	rem=$((num%10))
+	digit=$((digit*10+rem))
+	num=$((num/10))
+done
+if [ $temp -eq $digit ]
+then
+echo "Palindrome number"
+else
+echo "Not Palindrome"
+fi
+
+8.Evenodd
+#!/bin/bash
+echo "Enter a number : "
+read number
+if [ $((number%2)) -eq 0 ]
+then
+echo "Even number"
+else
+echo "Odd number"
+fi
+
+9.Prime number
+#!/bin/bash
+echo "Enter a number : "
+read num
+f=1
+for((i=2;i<num;i++));
+do
+if [ $((num%i)) -eq 0 ]
+then
+f=0
+fi
+done
+if [ $f -eq 0 ]
+then
+echo " Not prime number"
+else
+echo "prime number"
+fi
+
+10.Switch case
+#!/bin/bash
+
+a=5
+echo -n "1.create file 2.create directory 3.open a file 4.delete file"
+echo -n ""
+until [ $a -ne 5 ]
+do
+read -p "Enter file choice :" n
+
+case $n in
+1)
+
+read -p "Enter file name" name
+touch $name
+break
+;;
+2)
+
+read -p "Enter file name" name
+mkdir $name
+break
+;;
+3)
+
+read -p "Enter file name" name
+cat $name
+break
+;;
+4)read -p "Enter file name" name
+rm -r $name
+break
+;;
+
+esac
+done
